@@ -8,7 +8,7 @@ public class Tambah{
                 System.out.print(res);
                 
             } catch (Exception e) {
-                System.out.println(e.toString());
+                System.out.println("harus type data int");
             }
             
         }else{
