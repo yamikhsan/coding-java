@@ -4,7 +4,7 @@ public class Biodata{
         final String nama = "Yahya M I";
         final String tempat = "Sragen";
         final int tanggal = 13;
-        final int bulan = 05;
+        final int bulan = 5;
         final int tahun = 1995;
         double umur = 24.50;
         String alamat = "JL KH Mas Mansyur Gg Mede kel. Sudimara Pinang kec. Pinang, Kota Tangerang Banten";
