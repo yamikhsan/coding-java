@@ -33,7 +33,7 @@ public class Prima{
             
         } else {
 
-            for(int i=num/2; i>1; i--){
+            for(int i=num/2; i>=2; i--){
                 if(num % i == 0){
                     status = "bukan prima";
                     break;                    
