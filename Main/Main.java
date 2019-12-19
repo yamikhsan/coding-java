@@ -14,21 +14,28 @@ public class Main{
         //     System.out.print("args tidak boleh kosong");
         // }
 
-        try {
+        // try {
             
-            if(args.length == 1){
+        //     if(args.length == 1){
 
-                final int parm = Integer.parseInt(args[0]);
-                final String status = primary(parm) ? "Primer" : "Bukan Primer";
-                System.out.println(status);
+        //         final int parm = Integer.parseInt(args[0]);
+        //         final String status = primary(parm) ? "Primer" : "Bukan Primer";
+        //         System.out.println(status);
 
-            }else{
-                System.out.println("data harus 1 tidak boleh lebih atau kurang");
-            }
+        //     }else{
+        //         System.out.println("data harus 1 tidak boleh lebih atau kurang");
+        //     }
             
-        } catch (Exception e) {
-            System.out.println("type data harus int");
+        // } catch (Exception e) {
+        //     System.out.println("type data harus int");
+        // }
+
+        boolean isCheck =  false;
+        String a = "ali";
+        if(a=="alo"){
+            isCheck = true;
         }
+        System.out.println(isCheck);
     }
 
     public static boolean primary(int parm){
