@@ -41,28 +41,28 @@ public class Prima{
 
     }
 
-    private static void cekPrima(int num){
+    // private static void cekPrima(int num){
 
-        boolean prima = true;
+    //     boolean prima = true;
 
-        if(num <= 1){
+    //     if(num <= 1){
 
-            prima = false;
+    //         prima = false;
             
-        } else {
+    //     } else {
 
-            for(int i=num/2; i>=2; i--){
-                if(num % i == 0){
-                    prima = false;
-                    break;                    
-                }
-            }       
-        }
+    //         for(int i=num/2; i>=2; i--){
+    //             if(num % i == 0){
+    //                 prima = false;
+    //                 break;                    
+    //             }
+    //         }       
+    //     }
 
-        if(prima){
-            System.out.println(num + " => Prima");
-        }
+    //     if(prima){
+    //         System.out.println(num + " => Prima");
+    //     }
 
-    }
+    // }
 
 }
