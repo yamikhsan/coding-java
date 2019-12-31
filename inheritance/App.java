@@ -39,4 +39,10 @@ class Pianis extends Musisi{
     void mainPiano(){
         System.out.println(getNama() + " mainPiano...");
     }
+
+    @Override
+    protected void menyayi(){
+        super.menyayi();
+        System.out.println(getNama() + " mandi");
+    }
 }
