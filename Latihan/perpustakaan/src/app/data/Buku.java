@@ -3,25 +3,28 @@ package app.data;
 public class Buku{
 
     private String judul, ISBN, penulis, penerbit;
-    private int jmhHalaman;
+    private int jmhHalaman, tahun, stock;
 
     public Buku(){
 
     }
 
-    public Buku(String judul, String iSBN, String penulis, String penerbit, int jmhHalaman) {
+    public Buku(final String judul, final String iSBN, final String penulis, final String penerbit,
+            final int jmhHalaman, int tahun, int stock) {
         this.judul = judul;
         ISBN = iSBN;
         this.penulis = penulis;
         this.penerbit = penerbit;
         this.jmhHalaman = jmhHalaman;
+        this.tahun = tahun;
+        this.stock = stock;
     }
 
     public String getJudul() {
         return judul;
     }
 
-    public void setJudul(String judul) {
+    public void setJudul(final String judul) {
         this.judul = judul;
     }
 
@@ -29,7 +32,7 @@ public class Buku{
         return ISBN;
     }
 
-    public void setISBN(String iSBN) {
+    public void setISBN(final String iSBN) {
         ISBN = iSBN;
     }
 
@@ -37,7 +40,7 @@ public class Buku{
         return penulis;
     }
 
-    public void setPenulis(String penulis) {
+    public void setPenulis(final String penulis) {
         this.penulis = penulis;
     }
 
@@ -45,7 +48,7 @@ public class Buku{
         return penerbit;
     }
 
-    public void setPenerbit(String penerbit) {
+    public void setPenerbit(final String penerbit) {
         this.penerbit = penerbit;
     }
 
@@ -53,13 +56,28 @@ public class Buku{
         return jmhHalaman;
     }
 
-    public void setJmhHalaman(int jmhHalaman) {
+    public void setJmhHalaman(final int jmhHalaman) {
         this.jmhHalaman = jmhHalaman;
     }
 
-    @Override
-    public String toString(){
-        return "judul = " + judul + "\n" + "ISBN = " + ISBN + "\n" + "Penulis = " + penulis + "\n" + "Penerbit = " + penerbit + "\n" + "Jumlah Halaman = " + jmhHalaman;
+    public int getTahun() {
+        return tahun;
+    }
+
+    public void setTahun(int tahun) {
+        this.tahun = tahun;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public void diPinjam(){
+        this.stock--;
     }
 
 }

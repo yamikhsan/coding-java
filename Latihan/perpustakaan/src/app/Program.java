@@ -2,13 +2,17 @@ package app;
 
 import app.data.Buku;
 import app.data.Member;
-import java.util.HashMap;
+import app.transaction.*;
+import java.util.*;
 
-public class Program{    
+public class Program{  
+    
+    private static HashMap<Integer, Member> data = new HashMap<>();
+    
     public static void main(String[] args) {
         
-        // buku();
-        member();   
+        member();
+        buku();   
     
     }
 
@@ -17,26 +21,25 @@ public class Program{
         Member member1 = new Member(1, "Budi", "Male", "Yogyakarta");
         Member member2 = new Member(2, "Nina", "female", "Bandung");
 
-        HashMap<Integer, Member> data = new HashMap<>();
         data.put(member1.getId(), member1);
         data.put(member2.getId(), member2);
 
-        for (int i : data.keySet()) {
-            Member member = data.get(i);
+        // for (int i : data.keySet()) {
+        //     Member member = data.get(i);
 
-            println("Id         : " + member.getId());
-            println("Name       : " + member.getName());
-            println("Gender     : " + member.getGender());
-            println("Address    : " + member.getAddress());
-            println("");
+        //     println("Id         : " + member.getId());
+        //     println("Name       : " + member.getName());
+        //     println("Gender     : " + member.getGender());
+        //     println("Address    : " + member.getAddress());
+        //     println("");
 
-        }
+        // }
 
     }
 
     private static void buku(){
-        Buku buku1 = new Buku("The Power of Habit", "9781400069286", "Charles Duhigg", "Random House Trade Paperbacks", 371);
-        Buku buku2 = new Buku("Big Magic", "9786020851846", "Elizabeth Gilbert", "Mizan Kaifa", 280);
+        Buku buku1 = new Buku("The Power of Habit", "069286", "Charles Duhigg", "Random House Trade Paperbacks", 371, 2014, 50);
+        Buku buku2 = new Buku("Big Magic", "851846", "Elizabeth Gilbert", "Mizan Kaifa", 280, 2016, 29);
 
         HashMap<String, Buku> lemari = new HashMap<>();
         lemari.put(buku1.getISBN(), buku1);
@@ -46,14 +49,38 @@ public class Program{
             Buku buku = lemari.get(i);
             println("Judul          : " + buku.getJudul());
             println("ISNB           : " + buku.getISBN());
-            println("Penerbit       : " + buku.getPenerbit());
-            println("Penulis        : " + buku.getPenulis());
-            println("Jumlah Halaman : " + buku.getJmhHalaman());
+            // println("Penerbit       : " + buku.getPenerbit());
+            // println("Penulis        : " + buku.getPenulis());
+            // println("Jumlah Halaman : " + buku.getJmhHalaman());
+            // println("Tahun          : " + buku.getTahun());
+            println("Stock          : " + buku.getStock());
             println("");
         }
+
+        Scanner scan = new Scanner(System.in);
+        print("Masukkan ISBN = ");
+        String isbn = scan.nextLine();
+
+        Member member = data.get(1);
+        Peminjaman pinjam = new Peminjaman(member);
+        println(pinjam.getKode());
+
+        if(lemari.containsKey(isbn)){
+            Buku buku = lemari.get(isbn);
+            buku.diPinjam();
+            pinjam.addBook(buku);
+            println("Buku " + pinjam.getBook(isbn).getJudul() + " berhasil ditambah dtransaksi");
+        } else {
+            println("Failed");
+        }
+
     }
 
     private static void println(Object obj){
         System.out.println(obj);
+    }
+
+    private static void print(Object obj){
+        System.out.print(obj);
     }
 }
