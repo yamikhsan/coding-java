@@ -56,22 +56,45 @@ public class Program{
             println("Stock          : " + buku.getStock());
             println("");
         }
-
+        
         Scanner scan = new Scanner(System.in);
-        print("Masukkan ISBN = ");
-        String isbn = scan.nextLine();
-
+        
         Member member = data.get(1);
         Peminjaman pinjam = new Peminjaman(member);
         println(pinjam.getKode());
 
-        if(lemari.containsKey(isbn)){
-            Buku buku = lemari.get(isbn);
-            buku.diPinjam();
-            pinjam.addBook(buku);
-            println("Buku " + pinjam.getBook(isbn).getJudul() + " berhasil ditambah dtransaksi");
+        boolean run = true;
+        while(run){
+
+            print("Masukkan ISBN = ");
+            String isbn = scan.nextLine();
+    
+            if(lemari.containsKey(isbn)){
+                Buku buku = lemari.get(isbn);
+                buku.diPinjam();
+                pinjam.addBook(buku);
+                println("Buku " + pinjam.getBook(isbn).getJudul() + " berhasil ditambah dtransaksi");
+            } else {
+                println("Failed");
+            }
+
+            print("Apa anda ingin lanjut meminjam? [y/n] : ");
+            String answer = scan.nextLine();
+            
+            if(answer.equalsIgnoreCase("n")){
+                run = false;
+            }
+        }
+
+        HashMap<String, Buku> books = pinjam.getBooks();
+        if(books.size() > 0){
+            for(String key: books.keySet()){
+                println("");
+                println("Judul  = " + books.get(key).getJudul());
+                println("ISBN  = " + books.get(key).getISBN());
+            }
         } else {
-            println("Failed");
+            println("Anda tidak memesan apa-apa");
         }
 
     }
