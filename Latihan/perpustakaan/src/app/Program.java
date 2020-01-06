@@ -42,6 +42,8 @@ public class Program{
         Buku buku2 = new Buku("Big Magic", "851846", "Elizabeth Gilbert", "Mizan Kaifa", 280, 2016, 29);
 
         HashMap<String, Buku> lemari = new HashMap<>();
+        HashMap<String, Peminjaman> daftarTransaksi = new HashMap<>();
+
         lemari.put(buku1.getISBN(), buku1);
         lemari.put(buku2.getISBN(), buku2);
 
@@ -93,6 +95,16 @@ public class Program{
                 println("Judul  = " + books.get(key).getJudul());
                 println("ISBN  = " + books.get(key).getISBN());
             }
+
+            print("Apa anda yakin untuk meminjam ? [y/n] : ");
+            String answer = scan.nextLine();
+            if(answer.equalsIgnoreCase("y")){
+                daftarTransaksi.put(pinjam.getKode(), pinjam);
+                println("success");
+            } else {
+                print("gagal");
+            }
+
         } else {
             println("Anda tidak memesan apa-apa");
         }
