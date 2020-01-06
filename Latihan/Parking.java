@@ -2,7 +2,8 @@ import java.util.*;
 
 public class Parking{
 
-    private int no, type, in, out, total;
+    private int no, type, in, out, diff, total;
+    private String nameType;
 
     public static void main(String[] args) {
         
@@ -52,17 +53,29 @@ public class Parking{
             out += 24;
         }
 
-        int diff = out - in;
+        diff = out - in;
+        if(diff == 0){
+            diff = 1;
+        }
         
         if(type == 1){
-            total = count(diff, 5000, 3000);
+
+            nameType = "Mobil";
+            total = count(5000, 3000); 
+
+        } else if(type == 2){ 
+
+            nameType = "Motor";
+            total = count(3000, 1500);
+
         } else {
-            total = count(diff, 3000, 1500);
+            nameType = "tipe tidak trsedia";
+            total = 0;
         }
 
     }
 
-    private int count(int diff, int first, int last){
+    private int count(int first, int last){
         int res = first;
         if(diff > 1){
             res += (diff - 1) * last;
@@ -75,8 +88,8 @@ public class Parking{
 
         println("\nTerima Kasih telah melakukan transaksi dengan rincian sebagai berikut");
         println("Plat Nomor         : " + no);
-        println("Janis Kendaraan    : " + type);
-        println("Lama Parkir        : " + (out - in));
+        println("Jenis Kendaraan    : " + nameType);
+        println("Lama Parkir        : " + diff);
         println("Total Bayar        : " + total);
         println("Semoga pelayanan kami memuaskan\n");
 
